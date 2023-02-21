@@ -2,10 +2,13 @@ package com.example.reproductor_musica;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 
@@ -16,6 +19,16 @@ public class ReproMusic extends AppCompatActivity implements MediaController.Med
     MediaPlayer mp;
     Handler h;
     TextView tSong;
+    ImageView imgP;
+
+    int[] songs = {R.raw.queen_bohemian_rhapsody, R.raw.the_rolling_stones_paint_it_black,
+            R.raw.oasis_wonderwall, R.raw.system_of_a_down_toxicity_}; //array de canciones
+
+    int[] imags = {R.drawable.queen, R.drawable.rolling_stones_logo,
+            R.drawable.oasis_logo, R.drawable.system_ofad_logo};
+
+
+
 
 
 
@@ -24,16 +37,30 @@ public class ReproMusic extends AppCompatActivity implements MediaController.Med
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repro_music);
         Bundle operadores = getIntent().getExtras();
-        String op1 = operadores.getString("indiceC");
+        String op1 = operadores.getString("tituloCanc");
+        int op2 = operadores.getInt("numCancion");
 
         tSong = findViewById(R.id.txtSong);
         tSong.setText(op1);
+
+        imgP = findViewById(R.id.imageView3);
+        imgP.setImageResource(imags[op2]);
+
+
+
+
+
+
+
+
+
 
 
         mc= new MediaController(this);
         mc.setMediaPlayer(this);
         mc.setAnchorView(findViewById(R.id.ConstraitLayout));
-        mp = MediaPlayer.create(this, R.raw.the_rolling_stones_paint_it_black);
+        mp = MediaPlayer.create(this, songs[op2]);
+        mp.start();
 
 
         h=new Handler();
@@ -117,4 +144,7 @@ public class ReproMusic extends AppCompatActivity implements MediaController.Med
                 mc.hide();
         return false;
     }
+
+
+
 }

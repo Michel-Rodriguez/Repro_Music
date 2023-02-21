@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,9 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
 
     private String [] titulo= new String[]{"Bohemian Rhapsody", "Paint it Black", "Wonderwall", "Toxicity" }; //Datos
     private String [] grupo= new String[]{"Queen", "Rolling Stones", "Oasis", "System Of A Down"}; //Datos
-    private  String indiceCancion;
+    private  String tituCancion;
+    private  int indexCancion;
+
 
     private int[] imagenes =new int[]{R.drawable.queen,R.drawable.rolling_stones_logo,R.drawable.oasis_logo, R.drawable.system_ofad_logo};
 
@@ -36,9 +39,11 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
         for(int i=0;i< titulo.length;i++){
             Cancion c=new Cancion(titulo[i],grupo[i],imagenes[i]);
             canciones.add(c);
-            indiceCancion = canciones.get(i).getTitulo();
+            tituCancion = canciones.get(i).getTitulo();
 
         }
+
+
 
 
 
@@ -59,13 +64,17 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
 
     public void reproducirMusic(){
         Intent intent2 =  new Intent(this, ReproMusic.class);
-        intent2.putExtra("indiceC", indiceCancion);  // Pasamos esto a la otra clase
+        intent2.putExtra("tituloCanc", tituCancion);  // Pasamos esto a la otra clase
+        intent2.putExtra("numCancion", indexCancion);
         startActivity(intent2);
 
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        tituCancion = titulo[position];
+        indexCancion = position;
         reproducirMusic();
+        Toast.makeText(this, "se ha seleccionado: "+titulo[position],Toast.LENGTH_SHORT).show();
 
 
     }
@@ -103,7 +112,7 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
 
             TextView txtGrupo=miFila.findViewById(R.id.txtGrupo);
             TextView txtTitulo=miFila.findViewById(R.id.txtTitulo);
-            ImageView imgCiudad=miFila.findViewById(R.id.imgCiudad);
+            ImageView imgCiudad=miFila.findViewById(R.id.imgGrupo);
 
             txtGrupo.setText(misCanciones.get(position).grupo);
             txtTitulo.setText(misCanciones.get(position).titulo);
