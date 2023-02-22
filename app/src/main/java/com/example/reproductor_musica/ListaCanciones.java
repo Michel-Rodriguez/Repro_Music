@@ -24,13 +24,13 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
 
     ListView miLista;
 
-    private String [] titulo= new String[]{"Bohemian Rhapsody", "Paint it Black", "Wonderwall", "Toxicity" }; //Datos
-    private String [] grupo= new String[]{"Queen", "Rolling Stones", "Oasis", "System Of A Down"}; //Datos
+    private String [] titulo= new String[]{"Bohemian Rhapsody", "Paint it Black", "Wonderwall", "Toxicity", "Here comes the sun" }; //Datos
+    private String [] grupo= new String[]{"Queen", "Rolling Stones", "Oasis", "System Of A Down", "The Beatles"}; //Datos
     private  String tituCancion;
     private  int indexCancion;
 
 
-    private int[] imagenes =new int[]{R.drawable.queen,R.drawable.rolling_stones_logo,R.drawable.oasis_logo, R.drawable.system_ofad_logo};
+    private int[] imagenes =new int[]{R.drawable.queen,R.drawable.rolling_stones_logo,R.drawable.oasis_logo, R.drawable.system_ofad_logo, R.drawable.the_beatles_logo};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +42,6 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
             tituCancion = canciones.get(i).getTitulo();
 
         }
-
-
-
 
 
         super.onCreate(savedInstanceState);
@@ -67,15 +64,13 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
         intent2.putExtra("tituloCanc", tituCancion);  // Pasamos esto a la otra clase
         intent2.putExtra("numCancion", indexCancion);
         startActivity(intent2);
-
     }
 
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         tituCancion = titulo[position];
         indexCancion = position;
         reproducirMusic();
-        Toast.makeText(this, "se ha seleccionado: "+titulo[position],Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(this, "Se ha seleccionado: "+titulo[position],Toast.LENGTH_SHORT).show();
 
     }
 
@@ -120,8 +115,6 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
 
             return miFila;
         }
-
-
 
 
     }

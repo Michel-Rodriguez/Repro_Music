@@ -22,14 +22,10 @@ public class ReproMusic extends AppCompatActivity implements MediaController.Med
     ImageView imgP;
 
     int[] songs = {R.raw.queen_bohemian_rhapsody, R.raw.the_rolling_stones_paint_it_black,
-            R.raw.oasis_wonderwall, R.raw.system_of_a_down_toxicity_}; //array de canciones
+            R.raw.oasis_wonderwall, R.raw.system_of_a_down_toxicity_, R.raw.here_comes_the_sun_the_beatles}; //array de canciones
 
     int[] imags = {R.drawable.queen, R.drawable.rolling_stones_logo,
-            R.drawable.oasis_logo, R.drawable.system_ofad_logo};
-
-
-
-
+            R.drawable.oasis_logo, R.drawable.system_ofad_logo, R.drawable.the_beatles_logo};
 
 
     @Override
@@ -45,13 +41,6 @@ public class ReproMusic extends AppCompatActivity implements MediaController.Med
 
         imgP = findViewById(R.id.imageView3);
         imgP.setImageResource(imags[op2]);
-
-
-
-
-
-
-
 
 
 
