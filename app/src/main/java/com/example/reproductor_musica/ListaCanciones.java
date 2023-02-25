@@ -24,13 +24,13 @@ public class ListaCanciones extends AppCompatActivity implements AdapterView.OnI
 
     ListView miLista;
 
-    private String [] titulo= new String[]{"Bohemian Rhapsody", "Paint it Black", "Wonderwall", "Toxicity", "Here comes the sun" }; //Datos
-    private String [] grupo= new String[]{"Queen", "Rolling Stones", "Oasis", "System Of A Down", "The Beatles"}; //Datos
+    private String [] titulo= new String[]{"Bohemian Rhapsody", "Paint it Black", "Wonderwall", "Toxicity", "Here comes the sun", "November Rain"}; //Datos
+    private String [] grupo= new String[]{"Queen", "Rolling Stones", "Oasis", "System Of A Down", "The Beatles", "Gun's N' Roses"}; //Datos
     private  String tituCancion;
     private  int indexCancion;
 
 
-    private int[] imagenes =new int[]{R.drawable.queen,R.drawable.rolling_stones_logo,R.drawable.oasis_logo, R.drawable.system_ofad_logo, R.drawable.the_beatles_logo};
+    private int[] imagenes =new int[]{R.drawable.queen,R.drawable.rolling_stones_logo,R.drawable.oasis_logo, R.drawable.system_ofad_logo, R.drawable.the_beatles_logo, R.drawable.guns_n_roses};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
